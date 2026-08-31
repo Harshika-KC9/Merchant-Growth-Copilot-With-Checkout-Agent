@@ -1,0 +1,444 @@
+[
+  {
+    "id": "audit-1788186372900-w4lcd",
+    "timestamp": "2026-08-31T14:26:12.900Z",
+    "type": "RAZORPAY_ORDER",
+    "message": "Razorpay Test Mode order order_TWPR6FRzwyetrG created.",
+    "meta": {
+      "orderId": "order_TWPR6FRzwyetrG",
+      "amount": 1499,
+      "currency": "INR"
+    }
+  },
+  {
+    "id": "audit-1788186372897-ce152",
+    "timestamp": "2026-08-31T14:26:12.897Z",
+    "type": "AUTH_CONSUMED",
+    "message": "One-time authorization token consumed for this money action.",
+    "meta": {}
+  },
+  {
+    "id": "audit-1788186370548-fen93",
+    "timestamp": "2026-08-31T14:26:10.548Z",
+    "type": "APPROVED",
+    "message": "Checkout request passed policy gates.",
+    "meta": {
+      "total": 1499,
+      "humanApproved": true
+    }
+  },
+  {
+    "id": "audit-1788186370542-9as7f",
+    "timestamp": "2026-08-31T14:26:10.542Z",
+    "type": "POLICY_CHECK",
+    "message": "Human sign-off threshold: PASS",
+    "meta": {
+      "name": "Human sign-off threshold",
+      "passed": true,
+      "detail": "Not required"
+    }
+  },
+  {
+    "id": "audit-1788186370536-x09ju",
+    "timestamp": "2026-08-31T14:26:10.536Z",
+    "type": "POLICY_CHECK",
+    "message": "One-time authorization: PASS",
+    "meta": {
+      "name": "One-time authorization",
+      "passed": true
+    }
+  },
+  {
+    "id": "audit-1788186370530-wjdb6",
+    "timestamp": "2026-08-31T14:26:10.530Z",
+    "type": "POLICY_CHECK",
+    "message": "Buyer budget: PASS",
+    "meta": {
+      "name": "Buyer budget",
+      "passed": true
+    }
+  },
+  {
+    "id": "audit-1788186370522-ms8w7",
+    "timestamp": "2026-08-31T14:26:10.522Z",
+    "type": "POLICY_CHECK",
+    "message": "Spend cap: PASS",
+    "meta": {
+      "name": "Spend cap",
+      "passed": true
+    }
+  },
+  {
+    "id": "audit-1788186370516-kc1hv",
+    "timestamp": "2026-08-31T14:26:10.516Z",
+    "type": "POLICY_CHECK",
+    "message": "Quantity constraints: PASS",
+    "meta": {
+      "name": "Quantity constraints",
+      "passed": true
+    }
+  },
+  {
+    "id": "audit-1788186370511-3lffa",
+    "timestamp": "2026-08-31T14:26:10.511Z",
+    "type": "POLICY_CHECK",
+    "message": "Stock availability: PASS",
+    "meta": {
+      "name": "Stock availability",
+      "passed": true
+    }
+  },
+  {
+    "id": "audit-1788186370505-m163d",
+    "timestamp": "2026-08-31T14:26:10.505Z",
+    "type": "POLICY_CHECK",
+    "message": "Allowed category: PASS",
+    "meta": {
+      "name": "Allowed category",
+      "passed": true
+    }
+  },
+  {
+    "id": "audit-1788186370501-06xr0",
+    "timestamp": "2026-08-31T14:26:10.501Z",
+    "type": "BUYER_REQUEST",
+    "message": "AI Buyer requested a checkout.",
+    "meta": {
+      "request": {
+        "items": [
+          {
+            "productId": "p001",
+            "quantity": 1
+          }
+        ],
+        "budget": 3000,
+        "authorizationToken": "BUYER-AUTH-ONCE-2026",
+        "humanApproved": true
+      },
+      "result": {
+        "total": 1499,
+        "passed": true,
+        "needsApproval": false
+      }
+    }
+  },
+  {
+    "id": "audit-1788186367897-g226t",
+    "timestamp": "2026-08-31T14:26:07.897Z",
+    "type": "APPROVED",
+    "message": "Checkout request passed policy gates.",
+    "meta": {
+      "total": 1499,
+      "humanApproved": false
+    }
+  },
+  {
+    "id": "audit-1788186367889-6kkow",
+    "timestamp": "2026-08-31T14:26:07.889Z",
+    "type": "POLICY_CHECK",
+    "message": "Human sign-off threshold: PASS",
+    "meta": {
+      "name": "Human sign-off threshold",
+      "passed": true,
+      "detail": "Not required"
+    }
+  },
+  {
+    "id": "audit-1788186367883-flxec",
+    "timestamp": "2026-08-31T14:26:07.883Z",
+    "type": "POLICY_CHECK",
+    "message": "One-time authorization: PASS",
+    "meta": {
+      "name": "One-time authorization",
+      "passed": true
+    }
+  },
+  {
+    "id": "audit-1788186367875-8areg",
+    "timestamp": "2026-08-31T14:26:07.875Z",
+    "type": "POLICY_CHECK",
+    "message": "Buyer budget: PASS",
+    "meta": {
+      "name": "Buyer budget",
+      "passed": true
+    }
+  },
+  {
+    "id": "audit-1788186367866-linfu",
+    "timestamp": "2026-08-31T14:26:07.866Z",
+    "type": "POLICY_CHECK",
+    "message": "Spend cap: PASS",
+    "meta": {
+      "name": "Spend cap",
+      "passed": true
+    }
+  },
+  {
+    "id": "audit-1788186367857-g7wyy",
+    "timestamp": "2026-08-31T14:26:07.857Z",
+    "type": "POLICY_CHECK",
+    "message": "Quantity constraints: PASS",
+    "meta": {
+      "name": "Quantity constraints",
+      "passed": true
+    }
+  },
+  {
+    "id": "audit-1788186367852-aglqc",
+    "timestamp": "2026-08-31T14:26:07.852Z",
+    "type": "POLICY_CHECK",
+    "message": "Stock availability: PASS",
+    "meta": {
+      "name": "Stock availability",
+      "passed": true
+    }
+  },
+  {
+    "id": "audit-1788186367845-5cddi",
+    "timestamp": "2026-08-31T14:26:07.845Z",
+    "type": "POLICY_CHECK",
+    "message": "Allowed category: PASS",
+    "meta": {
+      "name": "Allowed category",
+      "passed": true
+    }
+  },
+  {
+    "id": "audit-1788186367839-4u3hp",
+    "timestamp": "2026-08-31T14:26:07.839Z",
+    "type": "BUYER_REQUEST",
+    "message": "AI Buyer requested a checkout.",
+    "meta": {
+      "request": {
+        "items": [
+          {
+            "productId": "p001",
+            "quantity": 1
+          }
+        ],
+        "budget": 3000,
+        "authorizationToken": "BUYER-AUTH-ONCE-2026",
+        "humanApproved": false
+      },
+      "result": {
+        "total": 1499,
+        "passed": true,
+        "needsApproval": false
+      }
+    }
+  },
+  {
+    "id": "audit-1788186360980-kwx2g",
+    "timestamp": "2026-08-31T14:26:00.980Z",
+    "type": "APPROVED",
+    "message": "Checkout request passed policy gates.",
+    "meta": {
+      "total": 1499,
+      "humanApproved": false
+    }
+  },
+  {
+    "id": "audit-1788186360976-l80yx",
+    "timestamp": "2026-08-31T14:26:00.976Z",
+    "type": "POLICY_CHECK",
+    "message": "Human sign-off threshold: PASS",
+    "meta": {
+      "name": "Human sign-off threshold",
+      "passed": true,
+      "detail": "Not required"
+    }
+  },
+  {
+    "id": "audit-1788186360972-i0ycf",
+    "timestamp": "2026-08-31T14:26:00.972Z",
+    "type": "POLICY_CHECK",
+    "message": "One-time authorization: PASS",
+    "meta": {
+      "name": "One-time authorization",
+      "passed": true
+    }
+  },
+  {
+    "id": "audit-1788186360969-p359l",
+    "timestamp": "2026-08-31T14:26:00.969Z",
+    "type": "POLICY_CHECK",
+    "message": "Buyer budget: PASS",
+    "meta": {
+      "name": "Buyer budget",
+      "passed": true
+    }
+  },
+  {
+    "id": "audit-1788186360966-33usd",
+    "timestamp": "2026-08-31T14:26:00.966Z",
+    "type": "POLICY_CHECK",
+    "message": "Spend cap: PASS",
+    "meta": {
+      "name": "Spend cap",
+      "passed": true
+    }
+  },
+  {
+    "id": "audit-1788186360962-k2viu",
+    "timestamp": "2026-08-31T14:26:00.962Z",
+    "type": "POLICY_CHECK",
+    "message": "Quantity constraints: PASS",
+    "meta": {
+      "name": "Quantity constraints",
+      "passed": true
+    }
+  },
+  {
+    "id": "audit-1788186360957-z17w0",
+    "timestamp": "2026-08-31T14:26:00.957Z",
+    "type": "POLICY_CHECK",
+    "message": "Stock availability: PASS",
+    "meta": {
+      "name": "Stock availability",
+      "passed": true
+    }
+  },
+  {
+    "id": "audit-1788186360951-h2vb0",
+    "timestamp": "2026-08-31T14:26:00.951Z",
+    "type": "POLICY_CHECK",
+    "message": "Allowed category: PASS",
+    "meta": {
+      "name": "Allowed category",
+      "passed": true
+    }
+  },
+  {
+    "id": "audit-1788186360945-ttcwz",
+    "timestamp": "2026-08-31T14:26:00.945Z",
+    "type": "BUYER_REQUEST",
+    "message": "AI Buyer requested a checkout.",
+    "meta": {
+      "request": {
+        "items": [
+          {
+            "productId": "p001",
+            "quantity": 1
+          }
+        ],
+        "budget": 3000,
+        "authorizationToken": "BUYER-AUTH-ONCE-2026",
+        "humanApproved": false
+      },
+      "result": {
+        "total": 1499,
+        "passed": true,
+        "needsApproval": false
+      }
+    }
+  },
+  {
+    "id": "audit-1788186299074-m3geq",
+    "timestamp": "2026-08-31T14:24:59.074Z",
+    "type": "ESCALATION",
+    "message": "₹2,998 exceeds ₹2,000 human approval threshold.",
+    "meta": {}
+  },
+  {
+    "id": "audit-1788186299030-dbx3y",
+    "timestamp": "2026-08-31T14:24:59.030Z",
+    "type": "POLICY_CHECK",
+    "message": "Human sign-off threshold: BLOCK",
+    "meta": {
+      "name": "Human sign-off threshold",
+      "passed": false,
+      "detail": "Required before payment"
+    }
+  },
+  {
+    "id": "audit-1788186299028-5vsx8",
+    "timestamp": "2026-08-31T14:24:59.028Z",
+    "type": "POLICY_CHECK",
+    "message": "One-time authorization: PASS",
+    "meta": {
+      "name": "One-time authorization",
+      "passed": true
+    }
+  },
+  {
+    "id": "audit-1788186299025-a8vgh",
+    "timestamp": "2026-08-31T14:24:59.025Z",
+    "type": "POLICY_CHECK",
+    "message": "Buyer budget: PASS",
+    "meta": {
+      "name": "Buyer budget",
+      "passed": true
+    }
+  },
+  {
+    "id": "audit-1788186299022-abs69",
+    "timestamp": "2026-08-31T14:24:59.022Z",
+    "type": "POLICY_CHECK",
+    "message": "Spend cap: PASS",
+    "meta": {
+      "name": "Spend cap",
+      "passed": true
+    }
+  },
+  {
+    "id": "audit-1788186299020-eerb9",
+    "timestamp": "2026-08-31T14:24:59.020Z",
+    "type": "POLICY_CHECK",
+    "message": "Quantity constraints: PASS",
+    "meta": {
+      "name": "Quantity constraints",
+      "passed": true
+    }
+  },
+  {
+    "id": "audit-1788186299017-7s6of",
+    "timestamp": "2026-08-31T14:24:59.017Z",
+    "type": "POLICY_CHECK",
+    "message": "Stock availability: PASS",
+    "meta": {
+      "name": "Stock availability",
+      "passed": true
+    }
+  },
+  {
+    "id": "audit-1788186299014-owatc",
+    "timestamp": "2026-08-31T14:24:59.014Z",
+    "type": "POLICY_CHECK",
+    "message": "Allowed category: PASS",
+    "meta": {
+      "name": "Allowed category",
+      "passed": true
+    }
+  },
+  {
+    "id": "audit-1788186299012-wcsi5",
+    "timestamp": "2026-08-31T14:24:59.012Z",
+    "type": "BUYER_REQUEST",
+    "message": "AI Buyer requested a checkout.",
+    "meta": {
+      "request": {
+        "items": [
+          {
+            "productId": "p001",
+            "quantity": 2
+          }
+        ],
+        "budget": 5000,
+        "authorizationToken": "BUYER-AUTH-ONCE-2026",
+        "humanApproved": false
+      },
+      "result": {
+        "total": 2998,
+        "passed": true,
+        "needsApproval": true
+      }
+    }
+  },
+  {
+    "id": "audit-1788186265198-c779n",
+    "timestamp": "2026-08-31T14:24:25.198Z",
+    "type": "SYSTEM",
+    "message": "Audit trail and one-time authorization reset for a fresh demo session.",
+    "meta": {}
+  }
+]

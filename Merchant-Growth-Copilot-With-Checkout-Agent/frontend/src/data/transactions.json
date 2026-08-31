@@ -1,0 +1,6 @@
+[
+  { "transaction_id": "T001", "amount": 499, "payment_method": "UPI", "device_type": "mobile", "city_tier": "Tier-2", "status": "timeout" },
+  { "transaction_id": "T002", "amount": 1299, "payment_method": "Card", "device_type": "desktop", "city_tier": "Tier-1", "status": "success" },
+  { "transaction_id": "T003", "amount": 799, "payment_method": "UPI", "device_type": "mobile", "city_tier": "Tier-2", "status": "dropoff" },
+  { "transaction_id": "T004", "amount": 299, "payment_method": "Wallet", "device_type": "mobile", "city_tier": "Tier-3", "status": "success" }
+]

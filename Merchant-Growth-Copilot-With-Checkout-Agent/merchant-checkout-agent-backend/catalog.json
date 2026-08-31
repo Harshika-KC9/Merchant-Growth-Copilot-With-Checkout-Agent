@@ -1,0 +1,73 @@
+{
+  "merchant": {
+    "id": "MGC-DEMO-001",
+    "name": "Merchant Growth Demo Store",
+    "currency": "INR"
+  },
+  "products": [
+    {
+      "id": "p001",
+      "name": "Smart Fitness Band",
+      "category": "electronics",
+      "price": 1499,
+      "stock": 18,
+      "constraints": [
+        "max 3 per order"
+      ],
+      "description": "Fitness tracking band with heart-rate and activity monitoring.",
+      "crossSell": [
+        "p004"
+      ]
+    },
+    {
+      "id": "p002",
+      "name": "Wireless Earbuds",
+      "category": "electronics",
+      "price": 1999,
+      "stock": 12,
+      "constraints": [
+        "max 2 per order"
+      ],
+      "description": "Low-latency wireless earbuds for everyday listening.",
+      "crossSell": [
+        "p003"
+      ]
+    },
+    {
+      "id": "p003",
+      "name": "Fast USB-C Charger",
+      "category": "accessories",
+      "price": 699,
+      "stock": 25,
+      "constraints": [
+        "max 4 per order"
+      ],
+      "description": "Compact fast charger compatible with USB-C devices.",
+      "crossSell": []
+    },
+    {
+      "id": "p004",
+      "name": "Protective Band Strap",
+      "category": "accessories",
+      "price": 399,
+      "stock": 30,
+      "constraints": [
+        "max 5 per order"
+      ],
+      "description": "Replacement strap for the Smart Fitness Band.",
+      "crossSell": []
+    },
+    {
+      "id": "p005",
+      "name": "Premium Device Bundle",
+      "category": "bundles",
+      "price": 2899,
+      "stock": 8,
+      "constraints": [
+        "merchant approval required"
+      ],
+      "description": "Curated bundle for a higher-value purchase.",
+      "crossSell": []
+    }
+  ]
+}
