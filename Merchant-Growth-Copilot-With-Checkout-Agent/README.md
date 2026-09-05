@@ -1,51 +1,88 @@
-🎯 Our Vision
+# 🚀 Merchant Growth Co-Pilot + Merchant Checkout Agent
 
-We believe commerce will increasingly evolve from:
+## Technical Documentation & Local Setup
 
-Human → Website → Checkout
+> A merchant intelligence platform combined with a policy-controlled AI commerce checkout layer.
 
-towards:
+---
 
+## 📌 What This Repository Contains
+
+This repository contains two connected experiences:
+
+### 📊 Merchant Growth Co-Pilot
+
+The existing React-based merchant analytics application.
+
+It helps merchants:
+
+* Analyze transaction datasets
+* Diagnose revenue performance
+* Identify revenue leaks
+* Generate AI-powered insights
+* Get growth recommendations
+* Simulate potential business fixes
+* Track previous analyses
+
+### 🤖 Merchant Checkout Agent
+
+A separate AI-commerce experience designed to demonstrate how merchants can safely handle AI-initiated purchase requests.
+
+It introduces a controlled layer between:
+
+```text
+AI Buyer
+    ↓
+Merchant Checkout Agent
+    ↓
+Policy Engine
+    ↓
+Merchant Approval
+    ↓
+Razorpay Test Mode
+    ↓
+Audit Trail
+```
+
+The existing Merchant Growth Co-Pilot remains the primary analytics experience, while the Checkout Agent provides a separate AI-commerce workflow.
+
+---
+
+# 🧠 Core Concept
+
+Traditional commerce:
+
+```text
 Human
   ↓
-AI Agent
+Website
+  ↓
+Checkout
+  ↓
+Payment
+```
+
+AI-driven commerce:
+
+```text
+Human
+  ↓
+AI Buyer
   ↓
 Merchant
   ↓
 Merchant Checkout Agent
   ↓
-Controlled Transaction
+Policy-Controlled Transaction
+  ↓
+Payment
+  ↓
+Audit Trail
+```
 
-Our goal is to explore how merchants can participate in this emerging AI-commerce ecosystem without giving up control over their products, policies, or transactions.
+The Checkout Agent exists to ensure that an AI agent cannot directly and unrestrictedly execute financial transactions.
 
-🚀 From Growth to AI Commerce
-Understand the Business
-          ↓
-Discover Growth Opportunities
-          ↓
-Prepare for AI Commerce
-          ↓
-Enable Controlled AI Transactions
-          ↓
-Maintain Merchant Control
-
-Merchant Growth Co-Pilot + Merchant Checkout Agent
-
-Helping merchants grow today — and become ready for AI-driven commerce tomorrow. 🚀
-
----
-
-# 📄 FILE 2 — Inner `README.md`
-
-Put this inside:
-
-```text
-Merchant-Growth-Copilot-With-Checkout-Agent/
-README.md
-# Merchant Growth Co-Pilot + Merchant Checkout Agent
-## Technical Documentation
-
-This project preserves the existing **Merchant Growth Co-Pilot** and adds a separate **Merchant Checkout Agent** experience for demonstrating controlled AI-commerce transactions.
+Instead, every purchase request is evaluated against merchant and buyer policies before payment.
 
 ---
 
@@ -70,302 +107,561 @@ Merchant-Growth-Copilot-With-Checkout-Agent/
 │   └── ...
 │
 └── README.md
-📊 Existing Merchant Growth Co-Pilot
+```
 
-The original React application remains the main merchant analytics experience.
+The repository keeps the existing frontend separate from the Checkout Agent frontend and backend.
 
-It provides:
+---
 
-Dataset analysis
-Revenue diagnostics
-AI-generated insights
-Growth recommendations
-Business simulations
-Fix recommendations
-Analysis history
-Persistent Recent Analyses
+# 🏗️ System Architecture
 
-The existing dashboard and analysis functionality remains intact.
+```mermaid
+flowchart TB
 
-🤖 Merchant Checkout Agent
+    MERCHANT["🏪 Merchant"]
 
-The Checkout Agent is a separate AI-commerce experience connected to the Growth Co-Pilot.
+    MERCHANT --> COPILOT["📊 Merchant Growth Co-Pilot"]
 
-The Growth Co-Pilot header contains:
+    COPILOT --> DATA["📁 Transaction Dataset"]
+    DATA --> ANALYSIS["🔎 Data Analysis"]
+    ANALYSIS --> INSIGHTS["🧠 AI Insights"]
+    INSIGHTS --> RECOMMEND["💡 Growth Recommendations"]
+    RECOMMEND --> SIM["🧪 Business Simulation"]
+    SIM --> HISTORY["📝 Recent Analyses"]
 
+    AI["🤖 AI Buyer"] --> REQUEST["🛒 Purchase Request"]
+
+    REQUEST --> AGENT["🛡️ Merchant Checkout Agent"]
+
+    AGENT --> POLICY{"Policy Engine"}
+
+    POLICY --> PRODUCT["📦 Product / Catalog"]
+    POLICY --> STOCK["📊 Stock"]
+    POLICY --> QUANTITY["🔢 Quantity"]
+    POLICY --> CATEGORY["🏷️ Category"]
+    POLICY --> BUDGET["💰 Buyer Budget"]
+    POLICY --> CAP["🚨 AI Spending Cap"]
+    POLICY --> AUTH["🔐 Authorization"]
+
+    POLICY --> DECISION{"Decision"}
+
+    DECISION -->|❌ Rejected| BLOCK["🚫 Transaction Blocked"]
+
+    DECISION -->|⚠️ Approval Required| MERCHANT_APPROVAL["👤 Merchant Approval"]
+
+    DECISION -->|✅ Approved| RAZORPAY["💳 Razorpay Test Mode"]
+
+    MERCHANT_APPROVAL -->|Approved| RAZORPAY
+    MERCHANT_APPROVAL -->|Rejected| BLOCK
+
+    RAZORPAY --> PAYMENT["💳 Test Payment"]
+    PAYMENT --> VERIFY["🔍 Payment Signature Verification"]
+    VERIFY --> AUDIT["📜 Audit Trail"]
+```
+
+---
+
+# 🔄 Merchant Growth Co-Pilot Flow
+
+```text
+📁 Upload Dataset
+       ↓
+🔎 Analyze Transactions
+       ↓
+📈 Diagnose Revenue
+       ↓
+🧠 Generate AI Insights
+       ↓
+💡 Recommend Fixes
+       ↓
+🧪 Simulate Business Impact
+       ↓
+📊 Review Expected Outcome
+       ↓
+📝 Save to Recent Analyses
+```
+
+The existing dashboard provides dataset analysis, revenue diagnostics, AI-generated insights, growth recommendations, business simulations, fix recommendations, and persistent recent analyses.
+
+---
+
+# 🤖 Merchant Checkout Agent
+
+The Checkout Agent is accessible from the Merchant Growth Co-Pilot through:
+
+```text
 AI Checkout Agent →
+```
 
-which opens:
+This opens:
 
+```text
 /merchant-checkout-agent/index.html
+```
 
-The Checkout Agent also provides a link back to the Merchant Growth Co-Pilot and an Audit Trail.
+The Checkout Agent also provides navigation back to the Merchant Growth Co-Pilot and an Audit Trail.
 
-🔄 Checkout Flow
+---
 
-The overall transaction flow is:
+# 🔐 Complete Checkout Flow
 
-AI Buyer
-   ↓
-Purchase Request
-   ↓
-Merchant Checkout Agent
-   ↓
-Catalog Validation
-   ↓
-Stock Validation
-   ↓
-Quantity Validation
-   ↓
-Category Validation
-   ↓
-Buyer Budget Check
-   ↓
-AI Spending Cap
-   ↓
-Authorization Check
-   ↓
-Merchant Approval
-   ↓
-Razorpay Test Order
-   ↓
-Razorpay Test Payment
-   ↓
-Payment Signature Verification
-   ↓
-Audit Trail
-🛍️ Agent-Readable Catalog
+Every AI purchase follows a controlled sequence:
 
-The Checkout Agent works with merchant product information including:
+```text
+🤖 AI Buyer
+     ↓
+🛒 Purchase Request
+     ↓
+🛡️ Merchant Checkout Agent
+     ↓
+📦 Catalog Validation
+     ↓
+📊 Stock Validation
+     ↓
+🔢 Quantity Validation
+     ↓
+🏷️ Category Validation
+     ↓
+💰 Buyer Budget Check
+     ↓
+🚨 AI Spending Cap
+     ↓
+🔐 Authorization Check
+     ↓
+👤 Merchant Approval
+     ↓
+💳 Razorpay Test Order
+     ↓
+💳 Razorpay Test Payment
+     ↓
+🔍 Payment Signature Verification
+     ↓
+📜 Audit Trail
+```
 
-Product name
-Price
-Stock
-Category
-Quantity constraints
-Purchase restrictions
+This is the documented transaction lifecycle for the Checkout Agent.
+
+---
+
+# 🛍️ Agent-Readable Catalog
+
+The Checkout Agent evaluates merchant product information before allowing a purchase.
+
+The catalog can contain:
+
+| Field                 | Purpose                          |
+| --------------------- | -------------------------------- |
+| Product Name          | Identifies the requested product |
+| Price                 | Determines transaction value     |
+| Stock                 | Determines availability          |
+| Category              | Used for category restrictions   |
+| Quantity Constraints  | Controls permitted quantity      |
+| Purchase Restrictions | Additional purchase rules        |
 
 This allows the agent to evaluate a purchase request before initiating payment.
 
-🧠 Policy Checks
+---
 
-Before a payment order is created, the agent evaluates the request.
+# 🛡️ Policy Engine
 
-Product
+The policy engine is the main safety layer.
+
+## 📦 Product Validation
 
 The requested product must exist in the available catalog.
 
-Stock
+```text
+Product exists?
+     │
+ ┌───┴───┐
+Yes      No
+ │        │
+ ▼        ▼
+Next    ❌ Reject
+```
 
-The requested quantity must be available.
+---
 
-Quantity
+## 📊 Stock Validation
+
+The requested quantity must be available in stock.
+
+```text
+Requested Quantity
+        ↓
+Available Stock
+        ↓
+    Compare
+     ↙   ↘
+Enough   Not Enough
+  ↓          ↓
+Next       ❌ Reject
+```
+
+---
+
+## 🔢 Quantity Validation
 
 The requested quantity must satisfy the configured quantity restrictions.
 
-Category
+---
 
-The requested product must belong to an allowed category.
+## 🏷️ Category Validation
 
-Buyer Budget
+The product must belong to an allowed category.
+
+---
+
+## 💰 Buyer Budget Check
 
 The transaction must remain within the buyer's specified budget.
 
-AI Spending Cap
+Example:
 
-The demonstration uses:
+```text
+Buyer Budget:     ₹3,000
+Purchase:         ₹2,500
 
-₹3,000
+Result:           ✅ Allowed
+```
 
-as the maximum AI transaction amount.
+---
+
+# 🚨 AI Spending Cap
+
+The Checkout Agent demonstration implements a hard AI transaction limit of:
+
+# ₹3,000
 
 Requests above this amount are declined before payment.
 
-Merchant Approval
+### Example
+
+```text
+AI Purchase Request
+        ↓
+Transaction = ₹3,600
+        ↓
+AI Limit = ₹3,000
+        ↓
+₹3,600 > ₹3,000
+        ↓
+❌ Transaction Declined
+        ↓
+💡 Reduce Quantity
+```
+
+The ₹3,000 limit is part of the documented demonstration configuration.
+
+---
+
+# 👤 Merchant Approval
 
 Transactions above:
 
-₹2,000
+# ₹2,000
 
-require merchant approval before a Razorpay order can be created.
+require explicit merchant approval before a Razorpay order can be created.
 
-Authorization
+```text
+Transaction
+     ↓
+Amount Check
+     │
+ ┌───┴─────────────┐
+ │                 │
+≤ ₹2,000         > ₹2,000
+ │                 │
+ ▼                 ▼
+Continue      Merchant Approval
+                   │
+              ┌────┴────┐
+              │         │
+           Approve    Reject
+              │         │
+              ▼         ▼
+          Payment     Blocked
+```
 
-The Checkout Agent uses a one-time authorization mechanism for the demo transaction flow.
+The approval threshold is documented as ₹2,000.
 
-💳 Razorpay Test Mode
+---
+
+# 🔐 Authorization
+
+The Checkout Agent uses a one-time authorization mechanism for the demonstration transaction flow.
+
+The authorization is consumed only as part of the controlled checkout process.
+
+---
+
+# 💳 Razorpay Test Mode
 
 Approved transactions can create a Razorpay Test Mode order through the backend.
 
-The backend is responsible for handling the Razorpay secret credentials.
+The backend is responsible for handling Razorpay secret credentials.
 
-The frontend must never contain:
+### Important
 
+The frontend must **never contain**:
+
+```text
 RAZORPAY_KEY_SECRET
-🔐 Environment Variables
+```
 
-Create a .env file inside:
+Only the backend should access the secret credential.
 
+---
+
+# 🔑 Environment Configuration
+
+Create a `.env` file inside:
+
+```text
 merchant-checkout-agent-backend/
+```
 
 Example:
 
+```env
 RAZORPAY_KEY_ID=rzp_test_...
 RAZORPAY_KEY_SECRET=...
 PORT=5001
 FRONTEND_ORIGIN=http://localhost:3000
+```
 
-Use Razorpay TEST MODE credentials for the demonstration.
+Use **Razorpay Test Mode credentials** for development and demonstration.
 
-Never commit .env to GitHub.
+### ⚠️ Never commit `.env`
 
-🚀 Running the Project Locally
-1. Start the React frontend
+Make sure your `.gitignore` contains:
+
+```text
+.env
+```
+
+The documented project configuration uses the variables above and explicitly requires Razorpay Test Mode credentials.
+
+---
+
+# 🚀 Running Locally
+
+## Prerequisites
+
+Make sure you have:
+
+* Node.js
+* npm
+* Git
+* Razorpay Test Mode credentials
+
+---
+
+## 1️⃣ Start the React Frontend
 
 Open a terminal:
 
+```bash
 cd frontend
 npm install
 npm start
+```
 
-The frontend will run at:
+The frontend runs at:
 
+```text
 http://localhost:3000
-2. Start the Checkout Agent backend
+```
 
-Open a second terminal:
+---
 
+## 2️⃣ Start the Checkout Agent Backend
+
+Open a **second terminal**:
+
+```bash
 cd merchant-checkout-agent-backend
 npm install
+```
+
+Create the environment file:
+
+```bash
 copy .env.example .env
+```
 
-Edit .env and add your Razorpay Test Mode credentials.
+Then edit `.env` and add your Razorpay Test Mode credentials.
 
-Then start the backend:
+Start the backend:
 
+```bash
 npm start
+```
 
 Backend:
 
+```text
 http://localhost:5001
-🔗 Connecting the Experiences
+```
 
-The Merchant Growth Co-Pilot contains the:
+These are the documented local frontend/backend setup steps.
 
+---
+
+# 🔗 Connecting the Two Experiences
+
+The Merchant Growth Co-Pilot contains:
+
+```text
 AI Checkout Agent →
+```
 
-button.
+Clicking it opens:
 
-The Checkout Agent page provides a:
+```text
+/merchant-checkout-agent/index.html
+```
 
+The Checkout Agent contains a:
+
+```text
 Merchant Growth Co-Pilot
+```
 
-link to return to the main application.
+link that returns to the main merchant application.
 
-This keeps the existing merchant analytics application intact while adding the separate AI-commerce experience.
+This keeps the existing merchant analytics experience intact while adding the AI-commerce experience.
 
-🎬 Recommended Demo
+---
 
-For a hackathon demonstration, use the following sequence.
+# 🎬 Recommended Hackathon Demo
 
-Step 1 — Merchant Growth
+For a live hackathon presentation, use this sequence.
+
+---
+
+## Step 1 — Merchant Growth
 
 Open:
 
+```text
 http://localhost:3000
+```
 
 Log in and open the Merchant Growth Co-Pilot.
 
-Step 2 — Analyze Data
+Show:
 
-Upload a merchant dataset.
+* Dashboard
+* Dataset Analysis
+* Revenue insights
+* Diagnostics
+* Recommendations
 
-Run the analysis and show:
+---
 
-Revenue insights
-Diagnostics
+## Step 2 — Analyze Merchant Data
+
+Upload a merchant transaction dataset.
+
+Run the analysis and demonstrate:
+
+```text
+Dataset
+   ↓
+Analysis
+   ↓
+Revenue Diagnosis
+   ↓
+AI Insights
+   ↓
 Recommendations
+   ↓
 Simulation
+   ↓
 Recent Analyses
-Step 3 — Open Checkout Agent
+```
+
+---
+
+## Step 3 — Open Checkout Agent
 
 Click:
 
+```text
 AI Checkout Agent →
+```
 
-Step 4 — Successful Transaction
+Explain:
 
-Select a product and quantity that satisfy:
+> "This is where we move from helping merchants understand their business to preparing them for AI-driven commerce."
 
-Stock availability
-Quantity restrictions
-Buyer budget
-Category rules
-₹3,000 AI spending cap
+---
+
+## Step 4 — Successful Transaction
+
+Choose a product and quantity satisfying:
+
+* ✅ Product exists
+* ✅ Product is in stock
+* ✅ Quantity is valid
+* ✅ Category is allowed
+* ✅ Buyer budget is sufficient
+* ✅ Transaction is within ₹3,000 AI spending cap
 
 Submit the purchase request.
 
-Step 5 — Merchant Approval
+---
 
-For transactions above:
+## Step 5 — Merchant Approval
 
+Use a transaction above:
+
+```text
 ₹2,000
+```
 
-demonstrate the merchant approval step.
+The system should request merchant approval.
 
-Step 6 — Razorpay Test Mode
+Demonstrate:
+
+```text
+AI Request
+    ↓
+Policy Checks
+    ↓
+⚠️ Approval Required
+    ↓
+Merchant Approves
+    ↓
+Continue to Payment
+```
+
+---
+
+## Step 6 — Razorpay Test Payment
 
 Create the Razorpay Test Mode order.
 
-Use the test payment flow.
+Complete the test payment flow.
 
-The backend verifies the payment signature.
+The backend verifies the payment signature before treating the payment as verified.
 
-Step 7 — Audit Trail
+---
 
-Open the Audit Trail.
+## Step 7 — Audit Trail
 
-Show the transaction lifecycle and decision history.
+Open:
 
-❌ Failure Scenario
+```text
+Audit Trail
+```
 
-To demonstrate the policy layer, create a request exceeding:
+Show the transaction lifecycle.
 
-₹3,000
+A successful transaction can demonstrate:
 
-Example:
-
-Product X × 2
-Total = ₹3,600
-
-Expected behavior:
-
-❌ Request Declined
-
-Reason:
-Transaction exceeds the AI spending cap.
-
-Alternative:
-Reduce the requested quantity.
-
-The agent should reject the request before initiating the payment action.
-
-🔄 Resetting the Demo
-
-The Audit Trail page provides:
-
-Clear Demo
-
-This resets the demonstration state so another transaction can be demonstrated.
-
-It clears the audit trail and resets the one-time demo authorization token.
-
-🧾 Audit Trail
-
-Important transaction events are recorded during the process.
-
-A typical flow can contain:
-
+```text
 Request Received
        ↓
 Catalog Validation
@@ -385,53 +681,123 @@ Razorpay Order Creation
 Payment Verification
        ↓
 Transaction Completion
+```
 
-This provides visibility into the agent's actions and decisions.
+The Audit Trail provides visibility into the agent's actions and decisions.
 
-🔒 Security
+---
 
-The project follows these important security practices for the demonstration:
+# ❌ Failure Scenario — Show This to Judges
 
-Razorpay Secret
+A strong hackathon demo should show that the system doesn't only handle successful transactions.
 
-Never place:
+Create a purchase request exceeding:
 
-RAZORPAY_KEY_SECRET
+# ₹3,000
 
-in frontend code.
+### Example
 
-Only the backend should access the secret.
+```text
+Product X × 2
 
-Environment Variables
+Total = ₹3,600
+```
 
-Store sensitive credentials in:
+Expected:
 
-.env
+```text
+🤖 AI Request
+      ↓
+🛡️ Policy Engine
+      ↓
+🚨 Spending Cap Check
+      ↓
+₹3,600 > ₹3,000
+      ↓
+❌ REQUEST DECLINED
+      ↓
+💡 Reduce Quantity
+```
 
-and never commit them to GitHub.
+### Important
 
-Test Mode
+The agent should reject the request **before initiating the payment action**.
 
-Use Razorpay Test Mode credentials during development and demonstration.
+This demonstrates that the Checkout Agent acts as a genuine policy enforcement layer rather than simply forwarding AI requests to the payment gateway.
 
-Payment Verification
+---
 
-The backend verifies the Razorpay payment signature before treating the payment as verified.
+# 🧹 Resetting the Demo
 
-🌐 Deployment
+The Audit Trail page provides:
 
-The React frontend is deployed using Render.
+```text
+Clear Demo
+```
 
-Live application:
+This resets the demonstration state.
 
-https://merchant-growth-copilot-razorpay.onrender.com
+It clears the audit trail and resets the one-time demo authorization token.
 
-The frontend deployment is separate from the Checkout Agent backend.
+---
 
-The backend can be deployed independently and connected to the frontend using the appropriate backend URL and environment configuration.
+# 📜 Audit Trail
 
-🧪 Demo Test Cases
-Test Case 1 — Valid Request
+The Audit Trail records important transaction events.
+
+Typical lifecycle:
+
+```text
+┌──────────────────────┐
+│  Request Received    │
+└──────────┬───────────┘
+           ↓
+┌──────────────────────┐
+│ Catalog Validation   │
+└──────────┬───────────┘
+           ↓
+┌──────────────────────┐
+│ Stock Check          │
+└──────────┬───────────┘
+           ↓
+┌──────────────────────┐
+│ Policy Evaluation    │
+└──────────┬───────────┘
+           ↓
+┌──────────────────────┐
+│ Authorization        │
+└──────────┬───────────┘
+           ↓
+┌──────────────────────┐
+│ Merchant Approval    │
+└──────────┬───────────┘
+           ↓
+┌──────────────────────┐
+│ Agent Decision       │
+└──────────┬───────────┘
+           ↓
+┌──────────────────────┐
+│ Razorpay Order       │
+└──────────┬───────────┘
+           ↓
+┌──────────────────────┐
+│ Payment Verification │
+└──────────┬───────────┘
+           ↓
+┌──────────────────────┐
+│ Transaction Complete │
+└──────────────────────┘
+```
+
+This gives merchants visibility into **what the AI requested, what policies were evaluated, and why the final decision was made.**
+
+---
+
+# 🧪 Demo Test Cases
+
+## Test Case 1 — Valid Request
+
+```text
 Product:
 Available
 
@@ -443,124 +809,271 @@ Sufficient
 
 Transaction:
 Within ₹3,000
+```
 
-Expected:
+### Expected
 
-APPROVED
-Test Case 2 — Spending Cap
+```text
+✅ APPROVED
+```
+
+---
+
+## Test Case 2 — AI Spending Cap
+
+```text
 Transaction:
 ₹3,600
+```
 
-Expected:
+### Expected
 
-DECLINED
+```text
+❌ DECLINED
 
 Reason:
-
 Exceeds ₹3,000 AI spending cap.
-Test Case 3 — Merchant Approval
+```
+
+---
+
+## Test Case 3 — Merchant Approval
+
+```text
 Transaction:
 ₹2,500
+```
 
-Expected:
+### Expected
 
-Merchant approval required.
-🏗️ Conceptual Architecture
-                    MERCHANT
-                       │
-                       ▼
-             Merchant Growth Co-Pilot
-                       │
-                 Business Data
-                       │
-                       ▼
-             AI / Growth Insights
-                       │
-                       ▼
-             AI-Transactable Catalog
-                       │
-                       │
-                       ▼
-                    AI BUYER
-                       │
-                Purchase Request
-                       │
-                       ▼
-            Merchant Checkout Agent
-                       │
-                       ▼
-              Policy Evaluation
-                       │
-          ┌────────────┼────────────┐
-          │            │            │
-        Budget       Stock      Authorization
-          │            │            │
-          └────────────┼────────────┘
-                       │
-                       ▼
-              Merchant Approval
-                       │
-                       ▼
-                 Razorpay Test
-                       │
-                       ▼
-              Payment Verification
-                       │
-                       ▼
-                  Audit Trail
-🛠️ Technology Stack
-Frontend
-React
-JavaScript
-HTML
-CSS
-Backend
-Node.js
-Express
-Payments
-Razorpay Test Mode
-Deployment
-Render
-Version Control
-Git
-GitHub
-🌱 Future Scope
+```text
+⚠️ MERCHANT APPROVAL REQUIRED
+```
 
-The current implementation demonstrates the concept of controlled AI commerce.
+---
 
-Possible future improvements include:
+# 🔒 Security Considerations
 
-Multi-merchant AI commerce
-Persistent transaction databases
-Merchant-specific policy engines
-Dynamic spending limits
-Role-based merchant approvals
-Fraud and risk scoring
-Inventory reservation
-Order management
-Production payment integrations
-Advanced AI agent reasoning
-Agent-to-agent commerce protocols
-🎯 Project Vision
+## Razorpay Secret
 
-The project explores a future where merchants are not only optimized for human customers but are also prepared for AI-driven commerce.
+Never place:
 
-The long-term model is:
+```text
+RAZORPAY_KEY_SECRET
+```
 
-Human
-   ↓
-AI Buyer
-   ↓
-Merchant
-   ↓
-Merchant Checkout Agent
-   ↓
-Policy-Controlled Transaction
-   ↓
-Payment
-   ↓
-Auditability
+inside frontend code.
 
-The Merchant Growth Co-Pilot helps merchants understand and grow their business.
+Only the backend should access it.
 
-The Merchant Checkout Agent helps merchants participate in AI-driven commerce while retaining control.
+---
+
+## Environment Variables
+
+Sensitive credentials should be stored in:
+
+```text
+.env
+```
+
+and never committed to GitHub.
+
+---
+
+## Razorpay Test Mode
+
+Use Razorpay **Test Mode** credentials during development and demonstration.
+
+---
+
+## Payment Verification
+
+The backend verifies the Razorpay payment signature before treating the transaction as verified.
+
+These security practices are part of the documented implementation.
+
+---
+
+# 🌐 Deployment
+
+The React frontend is deployed using Render.
+
+### Live Application
+
+**https://merchant-growth-copilot-razorpay.onrender.com**
+
+The frontend deployment is separate from the Checkout Agent backend.
+
+The backend can be deployed independently and connected to the frontend through the appropriate backend URL and environment configuration.
+
+---
+
+# 🛠️ Technology Stack
+
+### Frontend
+
+* React.js
+* JavaScript
+* HTML
+* CSS
+
+### Backend
+
+* Node.js
+* Express.js
+
+### Payments
+
+* Razorpay Test Mode
+
+### Deployment
+
+* Render
+
+### Version Control
+
+* Git
+* GitHub
+
+---
+
+# 🌱 Future Scope
+
+The current project demonstrates the concept of **controlled AI commerce**.
+
+Potential future improvements include:
+
+### 🤖 AI Commerce
+
+* Multi-merchant AI commerce
+* Advanced AI purchasing agents
+* Agent-to-agent commerce
+* AI commerce protocols
+
+### 🛡️ Security & Risk
+
+* Dynamic spending limits
+* Fraud detection
+* Risk scoring
+* Role-based merchant approvals
+* Advanced authorization policies
+
+### 🏪 Merchant Infrastructure
+
+* Persistent transaction database
+* Merchant-specific policy engines
+* Inventory reservation
+* Order management
+* Refund and cancellation workflows
+
+### 💳 Payments
+
+* Production payment integrations
+* Multiple payment gateways
+* Advanced payment verification
+
+These represent possible extensions of the current demonstration.
+
+---
+
+# 🎯 Project Vision
+
+The long-term vision is to prepare merchants not only for today's human-driven commerce, but also for tomorrow's AI-driven transactions.
+
+```text
+                 👤 HUMAN
+                    │
+                    ▼
+                🤖 AI BUYER
+                    │
+                    ▼
+                 🏪 MERCHANT
+                    │
+                    ▼
+        🛡️ MERCHANT CHECKOUT AGENT
+                    │
+                    ▼
+          ⚙️ POLICY-CONTROLLED
+              TRANSACTION
+                    │
+                    ▼
+                💳 PAYMENT
+                    │
+                    ▼
+              📜 AUDITABILITY
+```
+
+The two parts of the project work together:
+
+```text
+📊 Merchant Growth Co-Pilot
+            │
+            │
+            ▼
+    Understand & Grow
+            │
+            ▼
+     Prepare for AI
+            │
+            ▼
+🤖 Merchant Checkout Agent
+            │
+            │
+            ▼
+    Control AI Actions
+            │
+            ▼
+      Safe Transactions
+```
+
+### **The Growth Co-Pilot helps merchants understand and grow their business.**
+
+### **The Checkout Agent helps merchants participate in AI-driven commerce while retaining control.**
+
+---
+
+# ⭐ Hackathon Demo Summary
+
+If you have only **2–3 minutes** with the judges, demonstrate this:
+
+```text
+1️⃣ Upload merchant dataset
+          ↓
+2️⃣ Show AI-generated revenue insight
+          ↓
+3️⃣ Show recommended business fix
+          ↓
+4️⃣ Open AI Checkout Agent
+          ↓
+5️⃣ Submit valid AI purchase
+          ↓
+6️⃣ Show merchant approval for > ₹2,000
+          ↓
+7️⃣ Complete Razorpay Test Payment
+          ↓
+8️⃣ Open Audit Trail
+          ↓
+9️⃣ Attempt ₹3,600 purchase
+          ↓
+🔟 Show transaction blocked at ₹3,000 cap
+```
+
+### The key message:
+
+> **"We are not giving AI unrestricted access to payments. We are putting a merchant-controlled policy layer between AI intent and financial action."**
+
+---
+
+## 🚀 Built for the Next Generation of Commerce
+
+**Merchant Growth Co-Pilot + Merchant Checkout Agent**
+
+**Understand the business.**
+
+**Find the opportunity.**
+
+**Control the AI.**
+
+**Protect the transaction.**
+
+**Prepare for the future of commerce.**
