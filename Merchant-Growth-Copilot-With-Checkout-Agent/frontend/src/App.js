@@ -108,12 +108,92 @@ function App() {
   const [
     analysisHistory,
     setAnalysisHistory,
-  ] = useState([]);
+  ] = useState(() => {
+    // IMPORTANT:
+    // When the React app is opened again (for example after
+    // visiting the separate Checkout Agent page), React starts
+    // with fresh state. Load the signed-in user's history
+    // immediately from localStorage so the persistence effect
+    // cannot overwrite the saved history with [].
+    try {
+      const userId =
+        localStorage.getItem(
+          "merchantCurrentUser"
+        );
+
+      if (!userId) {
+        return [];
+      }
+
+      const saved =
+        localStorage.getItem(
+          `merchantAnalysisHistory_${userId}`
+        );
+
+      if (!saved) {
+        return [];
+      }
+
+      const parsed =
+        JSON.parse(saved);
+
+      return Array.isArray(parsed)
+        ? parsed
+        : [];
+    } catch (error) {
+      console.error(
+        "Unable to initialize analysis history:",
+        error
+      );
+
+      return [];
+    }
+  });
 
   const [
     activeHistoryId,
     setActiveHistoryId,
-  ] = useState(null);
+  ] = useState(() => {
+    // Restore the most recent analysis session as the active one.
+    try {
+      const userId =
+        localStorage.getItem(
+          "merchantCurrentUser"
+        );
+
+      if (!userId) {
+        return null;
+      }
+
+      const saved =
+        localStorage.getItem(
+          `merchantAnalysisHistory_${userId}`
+        );
+
+      if (!saved) {
+        return null;
+      }
+
+      const parsed =
+        JSON.parse(saved);
+
+      if (
+        Array.isArray(parsed) &&
+        parsed.length > 0
+      ) {
+        return parsed[0].id || null;
+      }
+
+      return null;
+    } catch (error) {
+      console.error(
+        "Unable to restore active history:",
+        error
+      );
+
+      return null;
+    }
+  });
 
   // =====================================================
   // GET CURRENT USER
@@ -203,12 +283,14 @@ function App() {
     const userId =
       getCurrentUser();
 
-    if (userId) {
-      saveUserHistory(
-        analysisHistory,
-        userId
-      );
+    if (!userId) {
+      return;
     }
+
+    saveUserHistory(
+      analysisHistory,
+      userId
+    );
   }, [
     analysisHistory,
     getCurrentUser,
@@ -948,6 +1030,18 @@ function App() {
   // =====================================================
 
   const handleLogout = () => {
+    // Save the latest history BEFORE clearing the current user.
+    // Otherwise the persistence effect no longer knows which
+    // user-specific localStorage key to write to.
+    const userId = getCurrentUser();
+
+    if (userId) {
+      saveUserHistory(
+        analysisHistory,
+        userId
+      );
+    }
+
     localStorage.removeItem(
       "merchantSignedIn"
     );
@@ -2448,6 +2542,17 @@ function App() {
           <button
             type="button"
             onClick={() => {
+              // Persist the current user's history before leaving
+              // the Dataset Analysis page for Checkout Agent.
+              const userId = getCurrentUser();
+
+              if (userId) {
+                saveUserHistory(
+                  analysisHistory,
+                  userId
+                );
+              }
+
               window.location.href =
                 "/merchant-checkout-agent/index.html";
             }}
