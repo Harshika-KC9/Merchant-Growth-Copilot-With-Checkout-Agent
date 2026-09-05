@@ -571,6 +571,6 @@ Together, they create a platform focused on making commerce **smarter, safer, an
 ---
 
 ## ⭐ If you find this project interesting, consider starring the repository!
-**For furthermore details,refer the Readme.md file inside the project folder.**
+**For furthermore details,refer the README.md file inside the project folder.**
 
 **Built with ❤️ using React.js, Node.js, Express.js, and Razorpay Test Mode.**
