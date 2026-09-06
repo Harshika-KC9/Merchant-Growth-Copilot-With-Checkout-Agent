@@ -1,4 +1,4 @@
-# 🚀 Merchant Growth Co-Pilot & Checkout Agent
+# 🚀 Merchant Growth Co-Pilot With Checkout Agent
 
 > **Helping merchants scale today — and getting them ready for an AI-first commerce world.**
 
