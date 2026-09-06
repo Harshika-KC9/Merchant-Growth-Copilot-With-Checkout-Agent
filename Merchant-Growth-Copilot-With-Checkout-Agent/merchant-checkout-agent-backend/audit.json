@@ -1,7 +1,17 @@
 [
   {
-    "id": "audit-1788618789996-iyhbf",
-    "timestamp": "2026-09-05T14:33:09.996Z",
+    "id": "audit-1788665405423-fxdwb",
+    "timestamp": "2026-09-06T03:30:05.424Z",
+    "type": "SYSTEM",
+    "message": "Merchant Checkout Agent backend started.",
+    "meta": {
+      "port": 5001,
+      "testMode": true
+    }
+  },
+  {
+    "id": "audit-1788632458927-uglza",
+    "timestamp": "2026-09-05T18:20:58.927Z",
     "type": "SYSTEM",
     "message": "Audit trail and one-time authorization reset for a fresh demo session.",
     "meta": {}

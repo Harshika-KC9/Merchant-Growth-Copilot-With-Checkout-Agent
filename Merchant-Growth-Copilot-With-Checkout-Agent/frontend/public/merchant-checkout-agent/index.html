@@ -1,12 +1,14 @@
 <!doctype html>
+
 <html lang="en">
 <head>
   <meta charset="utf-8">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1"
-  >
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1"
+
+>
 
   <title>Merchant Checkout Agent</title>
 
@@ -95,42 +97,42 @@
     }
 
     .links {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  flex-wrap: wrap;
-}
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
 
-.links a {
-  color: #b9d4ed;
-  text-decoration: none;
-  font-size: 11px;
-  font-weight: 750;
-  padding: 8px 11px;
-  border-radius: 9px;
-  border: 1px solid transparent;
-  transition: all 0.2s ease;
-}
+    .links a {
+      color: #b9d4ed;
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: 750;
+      padding: 8px 11px;
+      border-radius: 9px;
+      border: 1px solid transparent;
+      transition: all 0.2s ease;
+    }
 
-.links a:hover {
-  color: #ffffff;
-  background: #10243c;
-  border-color: #294763;
-}
+    .links a:hover {
+      color: #ffffff;
+      background: #10243c;
+      border-color: #294763;
+    }
 
-.links a strong {
-  color: #6ee7b7;
-}
+    .links a strong {
+      color: #6ee7b7;
+    }
 
-@media (max-width: 900px) {
-  .links {
-    width: 100%;
-  }
+    @media (max-width: 900px) {
+      .links {
+        width: 100%;
+      }
 
-  .links a {
-    margin: 0;
-  }
-}
+      .links a {
+        margin: 0;
+      }
+    }
 
     .grid {
       display: grid;
@@ -475,412 +477,428 @@
       }
     }
   </style>
+
 </head>
 
 <body>
 
   <div class="wrap">
 
-    <header class="top">
+```
+<header class="top">
 
-      <div class="brand">
+  <div class="brand">
 
-        <div class="logo">M</div>
+    <div class="logo">M</div>
 
-        <div>
+    <div>
 
-          <div class="eyebrow">
-            New commerce layer
-          </div>
-
-          <div class="title">
-            Merchant Checkout Agent
-          </div>
-
-          <div class="sub">
-            Bounded, auditable commerce for AI buyers · Razorpay Test Mode
-          </div>
-
-        </div>
-
+      <div class="eyebrow">
+        New commerce layer
       </div>
-<div class="links">
-  <a href="http://localhost:3000/">
-    Merchant Growth Co-Pilot
-  </a>
 
-  <a href="http://localhost:3000/?page=copilot">
-    Dataset Analysis
-  </a>
+      <div class="title">
+        Merchant Checkout Agent
+      </div>
 
-  <a href="/merchant-checkout-agent/index.html">
-    <strong>Checkout Agent</strong>
-  </a>
-
-  <a href="/merchant-checkout-agent/audit.html">
-    Audit Trail
-  </a>
-</div>
-
-    </header>
-
-
-    <div class="grid">
-
-
-      <!-- LEFT SIDE -->
-
-      <section>
-
-        <div class="card">
-
-          <h2>
-            Two-agent checkout
-          </h2>
-
-          <div class="hint">
-            The buyer asks. The merchant agent reasons.
-            Policy gates decide. Razorpay executes only after approval.
-          </div>
-
-
-          <div class="flow">
-
-            <div class="node">
-
-              <b>
-                🤖 AI Buyer Agent
-              </b>
-
-              <span>
-                Intent · quantity · budget
-              </span>
-
-            </div>
-
-
-            <div class="node">
-
-              <b>
-                🛡 Merchant Checkout Agent
-              </b>
-
-              <span>
-                Catalog · policy · approval
-              </span>
-
-            </div>
-
-
-            <div class="node">
-
-              <b>
-                💳 Razorpay Test Mode
-              </b>
-
-              <span>
-                Order · Checkout · verification
-              </span>
-
-            </div>
-
-          </div>
-
-
-          <div class="policy">
-
-            <div class="pill">
-
-              <b>
-                ₹3,000
-              </b>
-
-              <span>
-                Maximum AI-authorized transaction
-              </span>
-
-            </div>
-
-
-            <div class="pill">
-
-              <b>
-                ₹2,000
-              </b>
-
-              <span>
-                Human sign-off threshold
-              </span>
-
-            </div>
-
-
-            <div class="pill">
-
-              <b>
-                One-time token
-              </b>
-
-              <span>
-                Prevents replayed authorization
-              </span>
-
-            </div>
-
-
-            <div class="pill">
-
-              <b>
-                Structured catalog
-              </b>
-
-              <span>
-                GET /api/catalog — agent-readable
-              </span>
-
-            </div>
-
-          </div>
-
-
-          <div class="status">
-
-            <span class="dot"></span>
-
-            <span id="health">
-              Checking checkout agent backend…
-            </span>
-
-          </div>
-
-        </div>
-
-
-        <!-- CATALOG -->
-
-        <div
-          class="card"
-          style="margin-top:18px"
-        >
-
-          <h2>
-            Agent-readable catalog
-          </h2>
-
-          <div class="hint">
-            No webpage scraping required.
-            The buyer agent can query structured product data.
-          </div>
-
-          <div
-            id="catalog"
-            class="catalog"
-          ></div>
-
-        </div>
-
-      </section>
-
-
-      <!-- RIGHT SIDE -->
-
-      <section>
-
-        <div class="card">
-
-          <h2>
-            AI Buyer request
-          </h2>
-
-          <div class="hint">
-            Choose an item, quantity and budget.
-            Then let the Merchant Checkout Agent decide.
-          </div>
-
-
-          <label class="meta">
-            Product
-          </label>
-
-          <select id="product"></select>
-
-
-          <div class="controls">
-
-            <div>
-
-              <label class="meta">
-                Quantity
-              </label>
-
-              <input
-                id="qty"
-                type="number"
-                min="1"
-                value="1"
-              >
-
-            </div>
-
-
-            <div>
-
-              <label class="meta">
-                Budget (₹)
-              </label>
-
-              <input
-                id="budget"
-                type="number"
-                min="0"
-                value="3000"
-              >
-
-            </div>
-
-          </div>
-
-
-          <label
-            class="meta"
-            style="display:block;margin-top:10px"
-          >
-            One-time authorization token
-          </label>
-
-          <input
-            id="token"
-            value="BUYER-AUTH-ONCE-2026"
-          >
-
-
-          <div class="request">
-
-            <b style="font-size:11px">
-              Buyer → Merchant message
-            </b>
-
-            <pre id="requestJson"></pre>
-
-            <button
-              class="primary"
-              id="evaluate"
-            >
-              Ask Merchant Agent to Decide
-            </button>
-
-          </div>
-
-
-          <!-- DECISION -->
-
-          <div
-            id="decision"
-            class="decision"
-          >
-
-            <h3 id="decisionTitle"></h3>
-
-            <div id="decisionText"></div>
-
-            <div
-              id="checks"
-              class="checks"
-            ></div>
-
-
-            <div
-              id="approval"
-              class="approval"
-            >
-              ⚠️ Human merchant sign-off is required because
-              this request exceeds ₹2,000.
-            </div>
-
-
-            <div
-              class="row"
-              style="margin-top:10px"
-            >
-
-              <button
-                class="primary"
-                id="pay"
-                style="display:none"
-              >
-                Create Razorpay Test Order
-              </button>
-
-
-              <button
-                class="secondary"
-                id="bounded"
-                style="display:none"
-              >
-                Use Bounded Alternative
-              </button>
-
-            </div>
-
-
-            <div
-              id="success"
-              class="successbox"
-            ></div>
-
-          </div>
-
-
-          <div class="tiny">
-
-            Security boundary:
-            the Razorpay Key Secret is never sent to this page.
-
-            It stays in <b>backend/.env</b>.
-
-            Only the server creates Orders and verifies payment signatures.
-
-          </div>
-
-        </div>
-
-
-        <!-- AUDIT -->
-
-        <div
-          class="card"
-          style="margin-top:18px"
-        >
-
-          <h2>
-            Live audit preview
-          </h2>
-
-          <div class="hint">
-            Every request and policy decision is timestamped
-            before a money action.
-          </div>
-
-          <div
-            id="audit"
-            class="audit"
-          ></div>
-
-        </div>
-
-      </section>
+      <div class="sub">
+        Bounded, auditable commerce for AI buyers · Razorpay Test Mode
+      </div>
 
     </div>
 
   </div>
 
+  <div class="links">
+
+    <a href="http://localhost:3000/">
+      Merchant Growth Co-Pilot
+    </a>
+
+    <a href="http://localhost:3000/?page=copilot">
+      Dataset Analysis
+    </a>
+
+    <a href="/merchant-checkout-agent/index.html">
+      <strong>Checkout Agent</strong>
+    </a>
+
+    <a href="/merchant-checkout-agent/audit.html">
+      Audit Trail
+    </a>
+
+  </div>
+
+</header>
+
+
+<div class="grid">
+
+
+  <!-- LEFT SIDE -->
+
+  <section>
+
+    <div class="card">
+
+      <h2>
+        Two-agent checkout
+      </h2>
+
+      <div class="hint">
+        The buyer asks. The merchant agent reasons.
+        Policy gates decide. Razorpay executes only after approval.
+      </div>
+
+
+      <div class="flow">
+
+        <div class="node">
+
+          <b>
+            🤖 AI Buyer Agent
+          </b>
+
+          <span>
+            Intent · quantity · budget
+          </span>
+
+        </div>
+
+
+        <div class="node">
+
+          <b>
+            🛡 Merchant Checkout Agent
+          </b>
+
+          <span>
+            Catalog · policy · approval
+          </span>
+
+        </div>
+
+
+        <div class="node">
+
+          <b>
+            💳 Razorpay Test Mode
+          </b>
+
+          <span>
+            Order · Checkout · verification
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="policy">
+
+        <div class="pill">
+
+          <b>
+            ₹3,000
+          </b>
+
+          <span>
+            Maximum AI-authorized transaction
+          </span>
+
+        </div>
+
+
+        <div class="pill">
+
+          <b>
+            ₹2,000
+          </b>
+
+          <span>
+            Human sign-off threshold
+          </span>
+
+        </div>
+
+
+        <div class="pill">
+
+          <b>
+            One-time token
+          </b>
+
+          <span>
+            Prevents replayed authorization
+          </span>
+
+        </div>
+
+
+        <div class="pill">
+
+          <b>
+            Structured catalog
+          </b>
+
+          <span>
+            GET /api/catalog — agent-readable
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="status">
+
+        <span class="dot"></span>
+
+        <span id="health">
+          Checking checkout agent backend…
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <!-- CATALOG -->
+
+    <div
+      class="card"
+      style="margin-top:18px"
+    >
+
+      <h2>
+        Agent-readable catalog
+      </h2>
+
+      <div class="hint">
+        No webpage scraping required.
+        The buyer agent can query structured product data.
+      </div>
+
+      <div
+        id="catalog"
+        class="catalog"
+      ></div>
+
+    </div>
+
+  </section>
+
+
+  <!-- RIGHT SIDE -->
+
+  <section>
+
+    <div class="card">
+
+      <h2>
+        AI Buyer request
+      </h2>
+
+      <div class="hint">
+        Choose an item, quantity and budget.
+        Then let the Merchant Checkout Agent decide.
+      </div>
+
+
+      <label class="meta">
+        Product
+      </label>
+
+      <select id="product"></select>
+
+
+      <div class="controls">
+
+        <div>
+
+          <label class="meta">
+            Quantity
+          </label>
+
+          <input
+            id="qty"
+            type="number"
+            min="1"
+            value="1"
+          >
+
+        </div>
+
+
+        <div>
+
+          <label class="meta">
+            Budget (₹)
+          </label>
+
+          <input
+            id="budget"
+            type="number"
+            min="0"
+            value="3000"
+          >
+
+        </div>
+
+      </div>
+
+
+      <label
+        class="meta"
+        style="display:block;margin-top:10px"
+      >
+        One-time authorization token
+      </label>
+
+      <input
+        id="token"
+        value="BUYER-AUTH-ONCE-2026"
+      >
+
+
+      <div class="request">
+
+        <b style="font-size:11px">
+          Buyer → Merchant message
+        </b>
+
+        <pre id="requestJson"></pre>
+
+        <button
+          class="primary"
+          id="evaluate"
+        >
+          Ask Merchant Agent to Decide
+        </button>
+
+      </div>
+
+
+      <!-- DECISION -->
+
+      <div
+        id="decision"
+        class="decision"
+      >
+
+        <h3 id="decisionTitle"></h3>
+
+        <div id="decisionText"></div>
+
+        <div
+          id="checks"
+          class="checks"
+        ></div>
+
+
+        <div
+          id="approval"
+          class="approval"
+        >
+          ⚠️ Human merchant sign-off is required because
+          this request exceeds ₹2,000.
+        </div>
+
+
+        <div
+          class="row"
+          style="margin-top:10px"
+        >
+
+          <button
+            class="primary"
+            id="pay"
+            style="display:none"
+          >
+            Create Razorpay Test Order
+          </button>
+
+
+          <button
+            class="secondary"
+            id="bounded"
+            style="display:none"
+          >
+            Use Bounded Alternative
+          </button>
+
+        </div>
+
+
+        <div
+          id="success"
+          class="successbox"
+        ></div>
+
+      </div>
+
+
+      <div class="tiny">
+
+        Security boundary:
+        the Razorpay Key Secret is never sent to this page.
+
+        It stays in <b>backend/.env</b>.
+
+        Only the server creates Orders and verifies payment signatures.
+
+      </div>
+
+    </div>
+
+
+    <!-- AUDIT -->
+
+    <div
+      class="card"
+      style="margin-top:18px"
+    >
+
+      <h2>
+        Live audit preview
+      </h2>
+
+      <div class="hint">
+        Every request and policy decision is timestamped
+        before a money action.
+      </div>
+
+      <div
+        id="audit"
+        class="audit"
+      ></div>
+
+    </div>
+
+  </section>
+
+</div>
+```
+
+  </div>
 
   <script>
 
-    const API = 'http://localhost:5001/api';
+    /*
+     * LIVE DEPLOYED CHECKOUT AGENT BACKEND
+     *
+     * Local development:
+     * http://localhost:5001/api
+     *
+     * Production:
+     * https://merchant-growth-copilot-with-checkout-n8s9.onrender.com/api
+     */
+
+    const API =
+      'https://merchant-growth-copilot-with-checkout-n8s9.onrender.com/api';
+
 
     /*
-     * IMPORTANT:
      * The backend returns an object containing
      * the products array.
      *
@@ -907,9 +925,11 @@
 
     async function json(url, options) {
 
-      const response = await fetch(url, options);
+      const response =
+        await fetch(url, options);
 
-      const data = await response.json();
+      const data =
+        await response.json();
 
       if (!response.ok) {
 
@@ -933,10 +953,6 @@
 
     /*
      * Safely get products.
-     *
-     * This prevents:
-     *
-     * catalog.find is not a function
      */
 
     function getProducts() {
@@ -960,7 +976,8 @@
 
     function renderCatalog() {
 
-      const products = getProducts();
+      const products =
+        getProducts();
 
 
       if (!products.length) {
@@ -1040,7 +1057,8 @@
 
     function updateRequest() {
 
-      const products = getProducts();
+      const products =
+        getProducts();
 
 
       const selectedId =
@@ -1242,7 +1260,7 @@
 
         $('audit').innerHTML =
           '<div class="meta">' +
-          'Start the backend to see audit events.' +
+          'Unable to connect to the deployed checkout backend.' +
           '</div>';
 
       }
@@ -1800,7 +1818,7 @@
       try {
 
         /*
-         * Check backend
+         * Check deployed backend
          */
 
         const health =
@@ -1826,13 +1844,6 @@
 
         /*
          * Normalize the response.
-         *
-         * Backend expected:
-         *
-         * {
-         *   merchant: ...,
-         *   products: [...]
-         * }
          */
 
         if (
@@ -1846,6 +1857,7 @@
             catalogResponse;
 
         }
+
 
         /*
          * Also support a direct array
@@ -1889,7 +1901,7 @@
 
 
         $('health').textContent =
-          'Backend offline · start backend/server.js on port 5001';
+          'Unable to connect to deployed Checkout Agent backend';
 
       }
 
